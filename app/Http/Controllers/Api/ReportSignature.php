@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Signature;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -18,5 +19,14 @@ class ReportSignature extends Controller
         $signature->flag();
 
         return $signature;
+    }
+    /**
+     * Flag the given signature.
+     *
+     * @return bool
+     */
+    public function flag()
+    {
+        return $this->update(['flagged_at' => \Carbon\Carbon::now()]);
     }
 }
