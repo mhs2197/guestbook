@@ -13,4 +13,9 @@
 
 
 Route::get('/', 'SignaturesController@index')->name('home');
-Route::get('sign', 'SignaturesController@store')->name('sign');
+Route::get('/sign', 'SignaturesController@show')->name('sign');
+Route::get('/filecopy', 'Api\FileCopyController@index');
+Route::post('/unzip-file/{version}', 'Api\FileCopyController@unzipAction');
+
+Route::get('/zipUpload', 'Api\ZipUploadController@index');
+Route::post('/zipUploadToS3', 'Api\ZipUploadController@zipUploadToS3');
